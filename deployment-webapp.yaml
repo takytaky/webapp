@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-webapp
+  labels:
+    app: deploy-webapp
+  annotations:
+    kubernetes.io/change-cause: version 1.0
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: pod-webapp
+  template:
+    metadata:
+      labels:
+        app: pod-webapp
+    spec:
+      containers:
+      - name: container-webapp
+        image: takytaky/webapp:1.0
+        ports:
+        - containerPort: 8080

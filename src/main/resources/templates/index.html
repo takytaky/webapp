@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CI/CD Version Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* 배경색이 부드럽게 변하도록 애니메이션 효과 추가 */
+            transition: background-color 0.5s ease;
+        }
+        h1 {
+            font-size: 6rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .timestamp {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            background: rgba(0,0,0,0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<!-- 컨트롤러에서 넘겨준 bgColor 모델 값으로 배경색 설정 -->
+<body th:style="'background-color: ' + ${bgColor}">
+    
+    <h1 th:text="'Version ' + ${version}">Version X.X.X</h1>
+    
+    <div class="timestamp">
+        Server Time: <span th:text="${serverTime}">YYYY-MM-DD HH:MM:SS</span>
+    </div>
+
+</body>
+</html>
