@@ -13,7 +13,7 @@ public class VersionController {
     @GetMapping("/")
     public String getDashboard(Model model) {
         // CI/CD 테스트 시 아래 두 변수의 값을 변경하며 테스트합니다.
-        String version = "v2.0.1";
+        String version = "v2.0.2";
         String bgColor = "#ff0000"; // 초기 색상: 파란색
 
         // 캐시가 아닌 새로 배포된 서버임을 확인하기 위한 서버 시간
